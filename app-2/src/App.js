@@ -1,26 +1,22 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+class App extends Component {
+  constructor() {
+    super ()
+
+    this.state = {
+      family: ['Traci', 'Tony', 'Cameron', 'Juston', 'Doice']
+    }
+  }
+  render () {
+    let closeFamily = this.state.family.map((element, index) => {
+      return <h2 key={index}> {element}</h2>
+    })
+    return <div className='App'>{ closeFamily }</div>
+  }
+}  
 
 export default App;
+//.map is going through each element in the array and returning each one in its own <h2> under the variable closeFamily
+//the second return is returning the variable closeFamily as the newly created <h2>'s
